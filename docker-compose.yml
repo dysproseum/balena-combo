@@ -16,7 +16,7 @@ services:
     ports:
         - '80'
   sensor:
-    build: .
+    build: ./sensor-dht11
     privileged: true
     labels:
       io.balena.features.kernel-modules: '1'
