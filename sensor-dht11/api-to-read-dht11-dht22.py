@@ -54,4 +54,4 @@ def action(action):
   return Response(json.dumps(templateData), mimetype='application/json')
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', port=8989, debug=False)
+  app.run(host='0.0.0.0', port=7575, debug=False)
