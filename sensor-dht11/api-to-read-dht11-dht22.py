@@ -23,7 +23,7 @@ def main():
   if result.is_valid():
     templateData = {
         'humidity' : result.humidity,
-        'temperature' : result.temperature, 
+        'temperature' : result.temperature * 9.0 / 5 + 32,
    }
   else:
     templateData = { 'empty' : 0 }
@@ -42,7 +42,7 @@ def action(action):
   action_result = 'empty'
   if result.is_valid():
     if action == "temperature":
-      action_result = result.temperature * 9 /5 + 32
+      action_result = result.temperature
     if action == "humidity":
       action_result = result.humidity
 
