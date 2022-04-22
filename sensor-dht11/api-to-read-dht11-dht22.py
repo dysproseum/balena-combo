@@ -42,7 +42,7 @@ def action(action):
   action_result = 'empty'
   if result.is_valid():
     if action == "temperature":
-      action_result = result.temperature
+      action_result = result.temperature * 9 /5 + 32
     if action == "humidity":
       action_result = result.humidity
 
