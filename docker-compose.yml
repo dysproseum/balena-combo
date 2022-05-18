@@ -1,8 +1,8 @@
 version: '2'
 volumes:
-    sense-data:
-    dashboard-data:
-    settings:
+  sense-data:
+  dashboard-data:
+  settings:
 services:
 # sense:
   influxdb:
