@@ -2,41 +2,76 @@ version: '2'
 volumes:
     sense-data:
     dashboard-data:
+    settings:
 services:
-  influxdb:
-    restart: always
-    image: arm32v7/influxdb@sha256:2fed9b09a672cab330ac3ea1f03616e6821f2235bda64d549f605ef0d7081911
-    volumes:
-      - 'sense-data:/var/lib/influxdb'
-  dashboard:
-    image: balenablocks/dashboard
-    restart: always
-    volumes:
-        - 'dashboard-data:/data'
-    ports:
-        - '80'
-  sensor:
-    build: ./sensor-dht11
-    privileged: true
-    labels:
-      io.balena.features.kernel-modules: '1'
-      io.balena.features.sysfs: '1'
-      io.balena.features.supervisor-api: '1'
-    expose:
-      - '7575'
-    environment:
-      RAW_VALUES: '0'
-      COLLAPSE_FIELDS: '1'
-  connector:
-    image: balenablocks/connector
-    restart: always
-    labels:
-      io.balena.features.balena-api: '1'
-    privileged: true
-    ports:
-      - "8080"
-  mqtt:
-    image: eclipse-mosquitto:1.6.15
-    ports:
-      - "1883:1883"
-    restart: always  
+        
+#  sense:
+    influxdb:
+      restart: always
+      image: arm32v7/influxdb@sha256:2fed9b09a672cab330ac3ea1f03616e6821f2235bda64d549f605ef0d7081911
+      volumes:
+        - 'sense-data:/var/lib/influxdb'
+    dashboard:
+      image: balenablocks/dashboard
+      restart: always
+      volumes:
+          - 'dashboard-data:/data'
+      ports:
+          - '80'
+    sensor:
+      build: ./sensor-dht11
+      privileged: true
+      labels:
+        io.balena.features.kernel-modules: '1'
+        io.balena.features.sysfs: '1'
+        io.balena.features.supervisor-api: '1'
+      expose:
+        - '7575'
+      environment:
+        RAW_VALUES: '0'
+        COLLAPSE_FIELDS: '1'
+    connector:
+      image: balenablocks/connector
+      restart: always
+      labels:
+        io.balena.features.balena-api: '1'
+      privileged: true
+      ports:
+        - "8080"
+    mqtt:
+      image: eclipse-mosquitto:1.6.15
+      ports:
+        - "1883:1883"
+      restart: always  
+
+#  dash:
+    kiosk:
+      restart: always
+      build: ./balena-dash/kiosk
+      privileged: true
+      ports:
+        - 5011:5011
+      volumes:
+        - 'settings:/data'
+    scheduler:
+      restart: always
+      build: ./balena-dash/scheduler
+      privileged: true
+    wifi-connect:
+      build: ./balena-dash/wifi-connect
+      restart: always
+      network_mode: host
+      privileged: true
+      labels:
+        io.balena.features.dbus: '1'
+        io.balena.features.firmware: '1'
+    fbcp:
+      build: ./balena-dash/fbcp
+      restart: on-failure
+      privileged: true
+    browsercontrol:
+      build: ./balena-dash/browsercontrol
+      restart: always
+      privileged: true
+      ports:
+        - 8080:80
