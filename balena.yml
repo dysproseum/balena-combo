@@ -1,6 +1,6 @@
-name: balenaSense DHT11
+name: balenaCombo
 description: >-
-  Take readings from a BME680 or similar sensors on a Raspberry Pi, store with
+  balenaSense DHT11 / balenaDash. Take readings from a BME680 or similar sensors on a Raspberry Pi, store with
   InfluxDB and view with Grafana.
 fleetcta: Add sensors!
 post-provisioning: >-
@@ -28,4 +28,4 @@ data:
     - raspberrypi3
     - raspberrypi4-64
     - fincm3
-version: 2.3.2
+version: 2.4.0
