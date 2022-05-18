@@ -1,7 +1,8 @@
-name: balenaCombo
+name: balenaDash/balenaSense Combo
 description: >-
-  balenaSense DHT11 / balenaDash. Take readings from a BME680 or similar sensors on a Raspberry Pi, store with
-  InfluxDB and view with Grafana.
+  balenaSense DHT11 - Take readings from a BME680 or similar sensors on a Raspberry Pi, store with InfluxDB and view with Grafana.
+
+  balenaDash - Raspberry Pi-powered digital signage or website viewer, remotely accessible from anywhere.
 fleetcta: Add sensors!
 post-provisioning: >-
   Once the application starts, view your dashboard at http://balena.local or
@@ -18,14 +19,34 @@ assets:
       url: >-
         https://raw.githubusercontent.com/balenalabs/balena-sense/master/images/hub-logo512.png
 data:
+  applicationConfigVariables:
+    - BALENA_HOST_CONFIG_gpu_mem: 128
+    - BALENA_HOST_CONFIG_dtoverlay: "vc4-fkms-v3d"
   applicationEnvironmentVariables:
+    # sense:
     - COLLAPSE_FIELDS: 1
     - RAW_VALUES: 0
+    # dash:
+    - SHOW_CURSOR: 0
+    - CONTROL_TV: 0
+    - ENABLE_GPU: 0
+    - KIOSK: 1
+    - PERSISTENT: 1
+    - PORTAL_SSID: balenaDash
+    - PORTAL_PASSPHRASE: balenaDash
+    - ACTIVITY_TIMEOUT: 600
+    - LAUNCH_URL: ''
+    - ROTATE_DISPLAY: normal
+    - WINDOW_POSITION: '0,0'
+    - LOCAL_HTTP_DELAY: 0
+    - FBCP_DISPLAY: ''
   defaultDeviceType: raspberrypi3
   supportedDeviceTypes:
     - raspberry-pi
     - raspberry-pi2
     - raspberrypi3
+    - raspberrypi3-64
     - raspberrypi4-64
     - fincm3
+    - raspberrypi400-64
 version: 2.4.0
