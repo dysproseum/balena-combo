@@ -1,10 +1,17 @@
-## balenaDash/balenaSense Combo
+# balenaDash/balenaSense Combo
 
-# balenaSense DHT11 - Take readings from a BME680 or similar sensors on a Raspberry Pi, store with InfluxDB and view with Grafana.
+Deploy multiple applications per device on balenaCloud
 
-# balenaDash - Raspberry Pi-powered digital signage or website viewer, remotely accessible from anywhere
+## balenaSense DHT11
 
-![logo](https://raw.githubusercontent.com/balena-io-projects/balena-sense/master/images/logo.png)
+Take readings from a BME680 or similar sensors on a Raspberry Pi, store with InfluxDB and view with Grafana.
+- Updated to add support for DHT11/DHT22 devices.
+
+## balenaDash
+
+Raspberry Pi-powered digital signage or website viewer, remotely accessible from anywhere
+
+![logo](https://raw.githubusercontent.com/dysproseum/balena-combo/master/images/logo.png)
 
 **Starter project that lets anyone start monitoring envrionmental sensor data from a beautiful, remotely accessible dashboard.**
 
@@ -18,7 +25,7 @@
 
 Run balenaSense quickly by deploying it to a balenaCloud application. Log in and deploy the application with just one click by using the button below:
 
-[![](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balenalabs/balena-sense)
+[![](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/dysproseum/balena-combo)
 
 Or add your device to the [balenaSense Open Fleet](https://hub.balena.io/balenalabs/balenasense) to try the project out without a balenaCloud account.
 
@@ -46,10 +53,6 @@ Currently, only I2C sensors that are not mounted on a HAT are supported by the s
 
 The indoor air quality (IAQ) readings in previous versions of balenaSense were dependent on propriatery software that had recurring breaking changes. On multiple occasions, the entire project was broken while new changes were investigated and merged. In addition, to obtain accurate air quality readings on the BME680, specific burn in procedures are required that balenaSense did not support. For these reasons, air quality readings are no longer a part of balenaSense.
 
-### balenaBlocks and extensibility
-
-[balenaBlocks](https://github.com/balenablocks) are open source and extendable! We're looking into non-proprietary ways to support air quality readings and sensors on HATs: PRs are welcome! We believe that this block-based balenaSense is a more flexible solution overall, and a better base for adding more features as time goes on. If there is a feature that you want to see reinstated, please add an issue on [the repo](https://github.com/balenalabs/balena-sense).
-
 ## Contributing
 
 Do you want to help make balenaSense better? Take a look at our [Contributing Guide](contributing). Hope to see you around!
@@ -61,10 +64,3 @@ If you're having any problem, please [raise an issue](https://github.com/balenal
 ## License
 
 balenaSense is free software, and may be redistributed under the terms specified in the [license](https://github.com/balenalabs/balena-sound/blob/master/LICENSE).
-
-## Setup guides
-A full guide covering the initial setup of this project is available on [our blog](https://www.balena.io/blog/balenasense-v2-updated-temperature-pressure-and-humidity-monitoring-for-raspberry-pi/).
-
-## Become a balena poweruser
-
-Want to learn more about what makes balena work? Try one of our [masterclasses](https://www.balena.io/docs/learn/more/masterclasses/overview/). Each lesson is a self-contained, deeply detailed walkthrough on core skills you need to be successful with your next edge project.
