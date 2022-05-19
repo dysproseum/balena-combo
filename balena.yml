@@ -17,10 +17,10 @@ assets:
     type: blob.asset
     data:
       url: >-
-        https://raw.githubusercontent.com/balenalabs/balena-sense/master/images/hub-logo512.png
+        https://raw.githubusercontent.com/dysproseum/balena-combo/master/images/hub-logo512.png
 data:
   applicationConfigVariables:
-    - BALENA_HOST_CONFIG_gpu_mem: 128
+    - BALENA_HOST_CONFIG_gpu_mem: 160
     - BALENA_HOST_CONFIG_dtoverlay: "vc4-fkms-v3d"
   applicationEnvironmentVariables:
     # sense:
@@ -34,7 +34,7 @@ data:
     - PERSISTENT: 1
     - PORTAL_SSID: balenaDash
     - PORTAL_PASSPHRASE: balenaDash
-    - ACTIVITY_TIMEOUT: 600
+    - ACTIVITY_TIMEOUT: 3600
     - LAUNCH_URL: ''
     - ROTATE_DISPLAY: normal
     - WINDOW_POSITION: '0,0'
