@@ -1,3 +1,9 @@
+## balenaDash/balenaSense Combo
+
+# balenaSense DHT11 - Take readings from a BME680 or similar sensors on a Raspberry Pi, store with InfluxDB and view with Grafana.
+
+# balenaDash - Raspberry Pi-powered digital signage or website viewer, remotely accessible from anywhere
+
 ![logo](https://raw.githubusercontent.com/balena-io-projects/balena-sense/master/images/logo.png)
 
 **Starter project that lets anyone start monitoring envrionmental sensor data from a beautiful, remotely accessible dashboard.**
